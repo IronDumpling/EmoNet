@@ -1,4 +1,7 @@
 # EmoNet
+
+##
+
 ## 1. Introduction
 
 Since the outbreak of COVID-19, we have been living with the pandemic for over two years. As universities moved to online learning, video meetings replaced in-person learning and became the norm. 
@@ -7,7 +10,14 @@ Even though most of the instructors would invite participants to turn on their w
 
 To allow lecturers to have a direct view of how well students are learning, and for students who want to participate but do not want to show their faces, our team is proposing EmoNet, an emoji generator based on facial expressions. Our model will generate an emoji based on the participant’s real-time facial expression, and display the emoji instead of cold, emotionless text. 
 
-_Figure 1.1: Situations in online meetings before and after implementing our model [1]_
+
+
+
+
+<img width="239" alt="image" src="https://user-images.githubusercontent.com/70104294/192652919-c6835035-2435-4e02-b1cc-02115d7b97a4.png">
+
+
+Figure 1.1: Situations in online meetings before and after implementing our model [1]_
 
 As millions of students use zoom to take lessons worldwise, manually labeling emotions is simply unfeasible. By using machine learning and using datasets to train our model, such tasks become easier to implement. During a zoom lesson, with the students’ consent, our model captures the student’s face at a certain frequency (i.e. every minute), uploads the captured face to our model, then outputs the emoji accordingly. Hence, the machine learning approach also ensures a timely update without exhausting resources.
 
@@ -19,13 +29,13 @@ As millions of students use zoom to take lessons worldwise, manually labeling em
 
 
 
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)
 
 
-![alt_text](images/image1.png "image_tooltip")
 
 
-_Figure 2.1: High-level illustration of model_
+
+Figure 2.1: High-level illustration of model_
 
 
 ## 3. Background & Related Work
@@ -579,5 +589,3 @@ _blog_. [Online]. Available: [https://t4t.blog.ryerson.ca/2020/09/15/tech-tips-t
 [6]    “Papers with code - fer2013 benchmark (facial expression recognition),” _The latest in Machine Learning_. [Online]. Available: [https://paperswithcode.com/sota/facial-expression-recognition-on-fer2013](https://paperswithcode.com/sota/facial-expression-recognition-on-fer2013). [Accessed: 12-Apr-2022]. 
 
 [7]    Ian J. Goodfellow, Dumitru Erhan, Pierre Luc Carrier, Aaron Courville, Mehdi Mirza, Ben Hamner, Will Cukierski, Yichuan Tang, David Thaler, Dong-Hyun Lee, Yingbo Zhou, Chetan Ramaiah, Fangxiang Feng, Ruifan Li, Xiaojie Wang, Dimitris Athanasakis, John Shawe-Taylor, Maxim Milakov, John Park, Radu Ionescu, Marius Popescu, Cristian Grozea, James Bergstra, Jingjing Xie, Lukasz Romaszko, Bing Xu, Zhang Chuang, Yoshua Bengio, “Challenges in representation learning: A report on three machine learning contests,” _Neural Networks_, vol. 64, p. 59 - 63, April, 2015. [Online Serial]. Available: [https://www.sciencedirect.com/science/article/pii/S0893608014002159#](https://www.sciencedirect.com/science/article/pii/S0893608014002159#). [Accessed: 12-Apr-2022]. 
-
- \
