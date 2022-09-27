@@ -25,14 +25,9 @@ As millions of students use zoom to take lessons worldwise, manually labeling em
 ## 
 
 
-## 2. Illustration / Figure
+## 2. Illustration
 
-
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)
-
-
-
+<img width="993" alt="截屏2022-09-27 19 07 20" src="https://user-images.githubusercontent.com/70104294/192653072-af2b7ff0-7beb-4c37-9489-4ebe80a3ec80.png">
 
 
 Figure 2.1: High-level illustration of model_
