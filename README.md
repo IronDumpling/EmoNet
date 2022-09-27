@@ -10,14 +10,9 @@ Even though most of the instructors would invite participants to turn on their w
 
 To allow lecturers to have a direct view of how well students are learning, and for students who want to participate but do not want to show their faces, our team is proposing EmoNet, an emoji generator based on facial expressions. Our model will generate an emoji based on the participant’s real-time facial expression, and display the emoji instead of cold, emotionless text. 
 
+<img width="981" alt="截屏2022-09-27 19 08 09" src="https://user-images.githubusercontent.com/70104294/192653152-4d9ae6e5-5761-404e-8371-18204eca51cf.png">
 
-
-
-
-<img width="239" alt="image" src="https://user-images.githubusercontent.com/70104294/192652919-c6835035-2435-4e02-b1cc-02115d7b97a4.png">
-
-
-Figure 1.1: Situations in online meetings before and after implementing our model [1]_
+_Figure 1.1: Situations in online meetings before and after implementing our model [1]_
 
 As millions of students use zoom to take lessons worldwise, manually labeling emotions is simply unfeasible. By using machine learning and using datasets to train our model, such tasks become easier to implement. During a zoom lesson, with the students’ consent, our model captures the student’s face at a certain frequency (i.e. every minute), uploads the captured face to our model, then outputs the emoji accordingly. Hence, the machine learning approach also ensures a timely update without exhausting resources.
 
@@ -30,7 +25,7 @@ As millions of students use zoom to take lessons worldwise, manually labeling em
 <img width="993" alt="截屏2022-09-27 19 07 20" src="https://user-images.githubusercontent.com/70104294/192653072-af2b7ff0-7beb-4c37-9489-4ebe80a3ec80.png">
 
 
-Figure 2.1: High-level illustration of model_
+_Figure 2.1: High-level illustration of model_
 
 
 ## 3. Background & Related Work
@@ -52,12 +47,7 @@ In _Head Pose Estimation in Computer Vision: A Survey_, [Erik Murphy-Chutorian](
 
 The basic dataset we choose is FER2013, obtained from the Kaggle platform [5]. It contains 35886 48*48 pixel facial images with emotion labels. These images are all cropped well to have faces in the center. Samples are originally divided into seven classes: Angry, Disgust, Fear, Happy, Sad, Surprise, and Neutral. However, the number distribution between different classes is highly unbalanced, and the ratio between training, validation, and testing datasets are not perfect either.
 
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
+<img width="700" alt="截屏2022-09-27 19 08 36" src="https://user-images.githubusercontent.com/70104294/192653210-257de691-18af-4774-b62e-ec3a062580ee.png">
 
 
 _Figure 4.1: Distribution of image numbers between classes in the original dataset_
@@ -69,16 +59,13 @@ As the disgust dataset is significantly lacking images, our team decided to form
 
 To achieve such a number, our team decided to augment where the number of images does not reach our goal, and delete where the number exceeds our goal. To augment the dataset, our team chose a random direction (clockwise or counterclockwise), then randomly rotated by 5 - 30 degrees, incrementing by 5 degrees. After rotating the image, we zero-padded the external area, then center-cropped the image. 
 
-_Figure 4.2: Sample of dataset augmentation_
+<img width="882" alt="截屏2022-09-27 19 09 39" src="https://user-images.githubusercontent.com/70104294/192653285-bc778bbd-407e-4b54-872b-4757b7f3f65c.png">
+
+Figure 4.2: Sample of dataset augmentation_
 
 After testing our early models, we have found that all of our models confuse “angry” with “disgust”, so we decided to combine angry with disgust as a single dataset. To combine these two, we replaced the last half of the disgust dataset with the first half of the angry dataset, while keeping the overall the same. Thus, a balanced dataset is achieved. 
 
-
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.png "image_tooltip")
+<img width="924" alt="截屏2022-09-27 19 09 57" src="https://user-images.githubusercontent.com/70104294/192653303-b958c6da-2358-4aaf-81bd-3128eef4a5e9.png">
 
 
 _Figure 4.3: Balanced final dataset_
@@ -93,13 +80,7 @@ _Figure 4.3: Balanced final dataset_
 
 The primary model consists of two parts, the pre-trained ResNet transfer learning layers and classification layers (Figure 5.1).
 
-
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.png "image_tooltip")
-
+<img width="905" alt="截屏2022-09-27 19 10 31" src="https://user-images.githubusercontent.com/70104294/192653352-64e0f498-166f-40e2-bc13-f61b416581f7.png">
 
 _Figure 5.1: Structure of the primary model_
 
@@ -121,12 +102,7 @@ ReLU activation function is applied to the input layer and hidden layer in order
 
 The baseline model is a multi-class classifier consisting of CNN and NN layers (Figure 6.1). Our team believes this is a reasonable choice of baseline model since CNN-based classifiers have been proved to be effective in classification and are widely used.
 
-
-
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image5.png "image_tooltip")
+<img width="900" alt="截屏2022-09-27 19 10 53" src="https://user-images.githubusercontent.com/70104294/192653388-94c8a2b3-17f6-42b2-9340-df9a0ab8c818.png">
 
 
 _Figure 6.1: Structure of the baseline model_
@@ -172,19 +148,7 @@ We chose F1 score and accuracy as metrics for our primary model. F1 score refers
 
 The visualized metrics of both training and validation sets are shown in Figure 7.1 - 7.2. The model has a final training accuracy of 92.34% and validation accuracy of 58.67%. The final training F1 score is 0.75 and the validation F1 score is 0.59. 
 
-
-
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image6.jpg "image_tooltip")
-
-
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image7.jpg "image_tooltip")
-
+<img width="529" alt="截屏2022-09-27 19 11 31" src="https://user-images.githubusercontent.com/70104294/192653449-84e3d5c7-1069-44f7-a160-78f0530423be.png">
 
 _Figure 7.1-7.2: Accuracy and F1 Score curves_
 
@@ -196,13 +160,7 @@ _Figure 7.1-7.2: Accuracy and F1 Score curves_
 
 To see how the model performs more intuitively, here are some sample outputs with both real and predicted labels. In this batch of randomly selected images, some are easy to determine while others are hard to tell by human experts. Hence, these eight images are relatively representative.
 
-
-
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image8.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image8.png "image_tooltip")
-
+<img width="904" alt="截屏2022-09-27 19 11 53" src="https://user-images.githubusercontent.com/70104294/192653490-548192cf-0e81-4e61-a2d5-163e23179404.png">
 
 _Figure 7.3: Sample outputs with real and predicted labels_
 
@@ -213,13 +171,7 @@ In order to further analyze the accuracies between different types of input, we 
 * The model achieves the highest prediction accuracy on class “happy” (83.6%) and also performs well with another positive emotion “surprise” (72.8%). On the other hand, it is not very good at recognizing negative emotions such as “fear” and “sad”, with the accuracy of 44.1% and 50.9% respectively.
 * In terms of possible reasons for incorrect prediction, we noticed that the model is likely to confuse emotions with similar inclinations (i.e. Given “fear” but predicts “disgust”), and that it tends to generalize emotions without exaggerated features to neutral (i.e. Given “sad” but predicts “neutral”).
 
-
-
-<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image9.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image9.jpg "image_tooltip")
-
+<img width="487" alt="截屏2022-09-27 19 13 12" src="https://user-images.githubusercontent.com/70104294/192653609-31e56207-6915-4266-99d9-b2eb13c0767e.png">
 
 _Figure 7.4: Confusion matrix_
 
@@ -233,6 +185,10 @@ The testing dataset was prepared as described in section 4.2. It was never used 
 The goal of this project is to represent participants in the form of emojis, hence besides the testing dataset, we gathered extra photos and tried to simulate real lecture scenarios. However, since some of the emotions are hard to represent and rarely seen in lectures or meetings, only parts of the extra test photos were taken by the team members. For other rarely seen emotion classes, we looked online for sample photos from authorized websites. The following four figures are some of the correct predictions. As shown in the results, the model correctly classified “happy”, “disgust”, “neutral” and “fear” emotions from the input images. To have a direct view of the model’s mechanism, we have also placed the classification score of each class for a given image in the plot. 
 
 Overall, EmoNet achieved a 62% accuracy on the extra dataset, which matches our expectation of testing accuracy. 
+
+<img width="900" alt="截屏2022-09-27 19 13 28" src="https://user-images.githubusercontent.com/70104294/192653631-5b109bd5-acbe-4b65-b363-057c430ea4e6.png">
+
+<img width="901" alt="截屏2022-09-27 19 13 43" src="https://user-images.githubusercontent.com/70104294/192653652-969c4c1a-b472-4b8d-a3ff-be02191ff5f1.png">
 
 _Figure 8.1 - 8.4: some correct predictions made by EmoNet_
 
@@ -534,6 +490,8 @@ It can be concluded that the model seldomly falsely predicts positive emotions �
 Also as mentioned in section 7.2, we noticed that when the real label is “fear”, 26% are predicted as “disgust” and “sad”, and 17% are predicted as “neutral”; when the real label is “sad”, 22% are predicted as “disgust” and “fear”, and 22% are predicted as “neutral”. It means that although the model has relatively high error rates when recognizing negative emotions, it is mainly due to confusion with other negative and neutral expressions, rather than positive emotions. This feature reduces the impact of EmoNet’s wrong outputs in practical video meetings.
 
 From Table 9.2, it can be noted that the recalls of “fear” and “sad” are low, which implies an insensitivity to classify these emotions. Additionally, many facial expressions are debatable through the eyes of different people, such as the following images in Figures 9.1 - 9.2. Thus, we must admit that there are unavoidable limitations of such facial expression recognition tools in practice.
+
+<img width="804" alt="截屏2022-09-27 19 13 59" src="https://user-images.githubusercontent.com/70104294/192653680-64851352-54b7-4927-b779-f3efaa9a5eb8.png">
 
 _Figure 9.1 - 9.2: Debatable facial expressions_
 
